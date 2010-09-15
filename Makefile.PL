@@ -26,8 +26,11 @@ my %args = (
     VERSION_FROM         =>  $LIB_FILE,
     ABSTRACT_FROM        =>  $LIB_FILE,
     PREREQ_PM            => {
-        'strict'             =>  0,
-        'warnings'           =>  0,
+        'strict'                =>  0,
+        'warnings'              =>  0,
+        'Games::Word::Wordlist' =>  0,
+        'Test::Deep::NoTest'    =>  0,
+        'List::MoreUtils'       =>  0,
     },
     MIN_PERL_VERSION     =>   5.006,
     AUTHOR               =>  "$ME <$LOCAL_ADDR\@$DOMAIN>",
@@ -41,7 +44,8 @@ my %args = (
         resources        => {
             repository   => $REPOSITORY,
         },
-        keywords         => [qw [ ]],
+        keywords         => [qw [words list wordlist], "word list", 
+                             "Stanford GraphBase"],
     },
 );
 
