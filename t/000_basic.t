@@ -17,6 +17,21 @@ BEGIN {
 
 ok defined $Games::Word::Wordlist::SGB::VERSION, "VERSION is set";
 
+my $obj = Games::Word::Wordlist::SGB -> new;
+
+isa_ok ($obj, 'Games::Word::Wordlist::SGB');
+isa_ok ($obj, 'Games::Word::Wordlist');
+
+is ($obj -> words, 5757, 'Correct number of words');
+
+foreach my $word (qw [aargh which faxes pupal zowie pearl]) {
+    ok  $obj -> is_word ($word), "$word in list";
+}
+
+foreach my $word (qw [buffy one perl cobol python parrot]) {
+    ok !$obj -> is_word ($word), "$word not in list";
+}
+
 Test::NoWarnings::had_no_warnings () if $r;
 
 done_testing;
